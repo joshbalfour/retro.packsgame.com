@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Packs Game - Retro Gameboy Adventure</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="main-container">
+        <header class="header">
+            <div class="game-title-header">
+                <h1 class="title-text">PACKS GAME</h1>
+                <p class="subtitle">A RETRO GAMEBOY ADVENTURE</p>
+            </div>
+            <nav class="nav">
+                <a href="#home" class="nav-link active">HOME</a>
+                <a href="#game" class="nav-link">GAME</a>
+                <a href="#instructions" class="nav-link">MANUAL</a>
+                <a href="#gallery" class="nav-link">GALLERY</a>
+            </nav>
+        </header>
+
+        <main class="main-content">
+            <section id="home" class="section active">
+                <div class="hero">
+                    <!-- Game Boy Color frame around splash image -->
+                    <div class="gameboy-frame">
+                        <div class="screen-container">
+                            <div class="screen">
+                                <div class="hero-image">
+                                    <img src="assets/splash.png" alt="Game Splash" class="pixel-art">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Game Boy Color Controls -->
+                        <div class="controls">
+                            <div class="dpad">
+                                <div class="dpad-center"></div>
+                                <div class="dpad-up"></div>
+                                <div class="dpad-down"></div>
+                                <div class="dpad-left"></div>
+                                <div class="dpad-right"></div>
+                            </div>
+                            <div class="action-buttons">
+                                <div class="btn-a">A</div>
+                                <div class="btn-b">B</div>
+                            </div>
+                            <div class="system-buttons">
+                                <div class="btn-select">SELECT</div>
+                                <div class="btn-start">START</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="cta-buttons">
+                        <button class="btn btn-primary" onclick="showSection('game')">PLAY NOW</button>
+                        <button class="btn btn-secondary" onclick="showSection('instructions')">READ MANUAL</button>
+                        <button class="btn btn-secondary" onclick="showSection('gallery')">BOX & STICKER</button>
+                    </div>
+                </div>
+            </section>
+
+                    <section id="game" class="section">
+                        <h2>GAME SCREENSHOTS</h2>
+                        <div class="screenshot-grid">
+                            <div class="screenshot">
+                                <img src="assets/menu.png" alt="Game Menu" class="pixel-art">
+                                <p>Main Menu</p>
+                            </div>
+                            <div class="screenshot">
+                                <img src="assets/paused.png" alt="Game Paused" class="pixel-art">
+                                <p>Gameplay</p>
+                            </div>
+                            <div class="screenshot">
+                                <img src="assets/done.png" alt="Game Complete" class="pixel-art">
+                                <p>Victory Screen</p>
+                            </div>
+                        </div>
+                        <div class="download-section">
+                            <h3>DOWNLOAD & PLAY</h3>
+                            <p>Compatible with Gameboy & Gameboy Color</p>
+                            <div class="platform-buttons">
+                                <button class="btn btn-gameboy">GAMEBOY ROM</button>
+                                <button class="btn btn-emulator">PLAY IN BROWSER</button>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="instructions" class="section">
+                        <h2>INSTRUCTION MANUAL</h2>
+                        <div class="manual-container-single">
+                            <div class="manual-viewer">
+                                <embed src="instructions/Complete_Manual.pdf" type="application/pdf" class="pdf-embed-full">
+                                <p>Complete Instruction Manual</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="gallery" class="section">
+                        <h2>BOX ART & STICKER</h2>
+                        <div class="gallery-container">
+                            <div class="gallery-item">
+                                <h3>Game Box</h3>
+                                <div class="box-preview" onclick="openPDF('box.pdf')">
+                                    <div class="preview-placeholder">
+                                        <span>📦</span>
+                                        <p>Click to view full box template</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gallery-item">
+                                <h3>Cartridge Sticker</h3>
+                                <div class="sticker-preview" onclick="openPDF('Sticker.pdf')">
+                                    <div class="preview-placeholder">
+                                        <span>🎮</span>
+                                        <p>Click to view cartridge sticker</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+
+                <footer class="footer">
+                    <div class="footer-content">
+                        <p>&copy; 2024 PACKS INC. - RETRO GAMING DIVISION</p>
+                        <div class="social-links">
+                            <span class="social-link">GITHUB</span>
+                            <span class="social-link">ITCH.IO</span>
+                        </div>
+                    </div>
+                </footer>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
