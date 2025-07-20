@@ -21,6 +21,8 @@ body {
     border-radius: 8px;
     padding: 30px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+
+    padding-top: 10px;
 }
 
 /* Game Boy Color Frame - Authentic portrait proportions matching reference */
@@ -125,12 +127,16 @@ body {
 
 /* Sections */
 .section {
-    display: none;
-    animation: fadeIn 0.3s ease-in;
+    display: block;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 5px solid #3e2723;
 }
 
-.section.active {
-    display: block;
+.section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 
 @keyframes fadeIn {
@@ -141,6 +147,10 @@ body {
 /* Hero Section */
 .hero {
     text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .game-title {
@@ -152,12 +162,18 @@ body {
     color: #3e2723;
     margin-bottom: 10px;
     text-shadow: 2px 2px 0px #FBA728;
+    line-height: 1.2;
 }
 
-.subtitle {
+a {
+    text-decoration: none;
+}
+
+.game-title-header .subtitle {
     font-size: 8px;
-    color: #2e7d32;
-    margin-bottom: 20px;
+    /* color: #2e7d32; */
+    margin-bottom: 0;
+    margin-top: 20px;
 }
 
 .hero-image {
@@ -183,30 +199,30 @@ body {
     font-family: 'Press Start 2P', monospace;
     font-size: 8px;
     padding: 12px 16px;
-    border: 2px solid #1b5e20;
+    border: 2px solid #3e2723;
     background: #4caf50;
-    color: #1b5e20;
+    color: #3e2723;
     cursor: pointer;
     transition: all 0.2s;
     text-transform: uppercase;
 }
 
 .btn:hover {
-    background: #1b5e20;
+    background: #3e2723;
     color: #e8f5e8;
     transform: translateY(-2px);
 }
 
 .btn-primary {
     background: #FBA728;
-    color: #1b5e20;
+    color: #3e2723;
     border-color: #e8940a;
 }
 
 .btn-secondary {
     background: transparent;
-    color: #1b5e20;
-    border-color: #1b5e20;
+    color: #3e2723;
+    border-color: #3e2723;
 }
 
 .btn-gameboy {
@@ -231,11 +247,11 @@ body {
 
 .screenshot {
     text-align: center;
-    background: linear-gradient(145deg, #81c784 0%, #66bb6a 100%);
+    /* background: #23252d; */
     padding: 15px;
-    border: 2px solid #FBA728;
+    /* border: 2px solid #FBA728; */
     border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    /* box-shadow: 0 2px 4px rgba(0,0,0,0.1); */
 }
 
 .screenshot img {
@@ -246,8 +262,15 @@ body {
 }
 
 .screenshot p {
-    font-size: 8px;
-    color: #1b5e20;
+    font-size: 12px;
+    color: #e8940a;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.hero-content {
+    display: flex;
+    flex: 1;
 }
 
 .download-section {
@@ -360,7 +383,7 @@ body {
 
 .gallery-item h3 {
     font-size: 10px;
-    color: #1b5e20;
+    color: #3e2723;
     margin-bottom: 15px;
 }
 
@@ -436,177 +459,35 @@ body {
     color: #e8f5e8;
 }
 
-/* Game Boy Color Controls - Authentic placement with proper spacing */
-.controls {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    position: absolute;
-    bottom: 40px;
-    left: 40px;
-    right: 40px;
-    height: 80px;
-}
-
-.dpad {
-    position: relative;
-    width: 70px;
-    height: 70px;
-    margin-bottom: 10px;
-    margin-left: -10px;
-}
-
-.dpad-center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 30px;
-    height: 30px;
-    background: #1a1a1a;
-    border-radius: 2px;
-    box-shadow: inset 0 0 5px rgba(0,0,0,0.8);
-}
-
-.dpad-up, .dpad-down {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 20px;
-    height: 25px;
-    background: #2a2a2a;
-    border-radius: 2px;
-    cursor: pointer;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.3);
-}
-
-.dpad-up { top: 0; }
-.dpad-down { bottom: 0; }
-
-.dpad-left, .dpad-right {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 25px;
-    height: 20px;
-    background: #2a2a2a;
-    border-radius: 2px;
-    cursor: pointer;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.3);
-}
-
-.dpad-left { left: 0; }
-.dpad-right { right: 0; }
-
-.action-buttons {
-    position: relative;
-    width: 80px;
-    height: 60px;
-    margin-bottom: 15px;
-}
-
-.btn-a, .btn-b {
-    position: absolute;
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    background: linear-gradient(145deg, #3a3a3a 0%, #2a2a2a 100%);
-    border: 3px solid #1a1a1a;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 9px;
-    font-weight: bold;
-    color: #ccc;
-    cursor: pointer;
-    transition: all 0.2s;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-}
-
-.btn-a {
-    top: 0;
-    right: 10px;
-}
-
-.btn-b {
-    top: 45px;
-    right: 10px;
-}
-
-.btn-a:hover, .btn-b:hover {
-    background: linear-gradient(145deg, #2a2a2a 0%, #1a1a1a 100%);
-    transform: translateY(2px);
-    box-shadow: 0 1px 2px rgba(0,0,0,0.4);
-}
-
-.system-buttons {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    display: flex;
-    gap: 8px;
-    width: 120px;
-    justify-content: space-between;
-}
-
-.btn-select, .btn-start {
-    padding: 8px 12px;
-    background: linear-gradient(145deg, #607d8b 0%, #455a64 100%);
-    color: #fff;
-    border: none;
-    border-radius: 20px;
-    font-size: 6px;
-    cursor: pointer;
-    transition: all 0.2s;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-}
-
-.btn-select:hover, .btn-start:hover {
-    background: linear-gradient(145deg, #455a64 0%, #37474f 100%);
-    transform: translateY(1px);
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
-    .gameboy-frame {
-        padding: 20px 15px 40px 15px;
+    .hero {
+        flex-direction: column; 
     }
-    
-    .manual-container {
-        grid-template-columns: 1fr;
+    .gameboy {
+        height: 343px;
+        overflow: hidden;
     }
-    
-    .controls {
-        flex-direction: column;
-        gap: 20px;
-    }
-    
-    .title-text {
-        font-size: 12px;
-    }
-    
-    .nav {
-        gap: 10px;
-    }
-    
-    .nav-link {
-        font-size: 7px;
-        padding: 6px 8px;
+    .gameboy .speaker {
+        display: none;
     }
 }
 
 @media (max-width: 480px) {
-    .screenshot-grid {
-        grid-template-columns: 1fr;
-    }
-    
+   
     .cta-buttons {
         flex-direction: column;
         align-items: center;
     }
-    
-    .platform-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
+}
+
+
+body, .main-container {
+    background: rgba(251, 167, 40, 0.2) !important;
+}
+
+.main-container {
+    box-shadow: none;
+    border-radius: 0;
+    border: 10px solid #3e2723;
 }
